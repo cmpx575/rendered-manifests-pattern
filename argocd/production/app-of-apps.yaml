@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/cmpx575/rendered-manifests-pattern.git
     targetRevision: main
-    path: argocd/staging
+    path: argocd/production
     directory:
       exclude: app-of-apps.yaml
   destination:
