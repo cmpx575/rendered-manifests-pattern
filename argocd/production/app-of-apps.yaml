@@ -7,15 +7,25 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
+
   source:
     repoURL: https://github.com/cmpx575/rendered-manifests-pattern.git
     targetRevision: main
-    path: argocd/production
-    directory:
-      exclude: app-of-apps.yaml
+    path: argocd/base
+    kustomize:
+      patches:
+        - target:
+            kind: Application
+            namespace: argocd
+          patch: |-
+            - op: replace
+              path: /spec/source/targetRevision
+              value: production
+
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
+
   syncPolicy:
     automated:
       allowEmpty: true

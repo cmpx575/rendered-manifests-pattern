@@ -4,6 +4,6 @@ kind: Kustomization
 
 resources:
   - external-secrets-operator.yaml
-  - external-secrets.yaml
-  - metrics-server.yaml
+  # - external-secrets.yaml
+  # - metrics-server.yaml
   - namespaces.yaml
