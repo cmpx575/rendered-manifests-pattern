@@ -1,6 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: namespaces
   namespace: argocd
   finalizers:
@@ -13,7 +15,6 @@ spec:
     path: namespaces
   destination:
     server: https://kubernetes.default.svc
-    # namespace: default
   syncPolicy:
     automated:
       allowEmpty: true
