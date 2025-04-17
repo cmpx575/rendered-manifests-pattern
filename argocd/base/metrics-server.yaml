@@ -15,7 +15,7 @@ spec:
     path: metrics-server
   destination:
     server: https://kubernetes.default.svc
-    namespace: metrics-server
+    namespace: kube-system
   syncPolicy:
     automated:
       allowEmpty: true
